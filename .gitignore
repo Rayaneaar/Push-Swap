@@ -1,0 +1,15 @@
+
+compile_flags.txt
+
+# Compiled objects and binaries
+*.o
+*.out
+*.a
+
+# Push_swap executable (any subdirectory)
+push_swap
+pushswap
+
+# Default executable
+a.out
+
