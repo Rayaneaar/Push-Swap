@@ -1,5 +1,0 @@
--xc
--std=c17
--I../include
--I../libft
--I../libft/ft_printf/include
