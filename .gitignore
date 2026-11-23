@@ -1,3 +1,4 @@
 push_swap
 compile_flags.txt
 *.o
+*.a
