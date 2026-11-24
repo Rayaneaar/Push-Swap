@@ -29,4 +29,6 @@ typedef struct s_stack
 	int				size;
 }					t_stack;
 
+int					ft_isspace(int c);
+
 #endif
