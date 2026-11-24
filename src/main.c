@@ -66,7 +66,7 @@ void	print_stack(t_stack stack)
 
 int	ft_isspace(int c)
 {
-	if ((c >= 9 || c <= 13 || c == 32))
+	if (((c >= 9 && c <= 13) || c == 32))
 		return (1);
 	return (0);
 }
@@ -95,21 +95,23 @@ int	argv_parser(t_stack *stack, char *str)
 	t_node	*new_node;
 
 	j = 0;
-	sign = 1;
-	result = 0;
+	if (!str[j])
+		return (-1);
 	while (str[j])
 	{
+		sign = 1;
+		result = 0;
+		number = 0;
 		while (ft_isspace(str[j]))
 			j++;
-		ft_printf("%s", str);
+		if (!str[j])
+			break ;
 		if (str[j] == '-' || str[j] == '+')
 		{
 			if (str[j] == '-')
 				sign = -1;
 			j++;
 		}
-		if (!ft_isdigit(str[j]))
-			return (-1);
 		while (str[j] && ft_isdigit(str[j]))
 		{
 			if (result > (LONG_MAX - (str[j] - '0')) / 10)
@@ -125,7 +127,7 @@ int	argv_parser(t_stack *stack, char *str)
 		new_node = create_new_node(number);
 		add_back(stack, new_node);
 	}
-	return (-1);
+	return (1);
 }
 
 int	main(int ac, char **av)
@@ -134,12 +136,19 @@ int	main(int ac, char **av)
 	t_stack	stack_a;
 
 	if (ac < 2)
+	{
+		ft_printf("Error\n");
 		return (0);
+	}
 	i = 1;
 	init_stack(&stack_a);
 	while (i < ac)
 	{
-		argv_parser(&stack_a, av[i]);
+		if (argv_parser(&stack_a, av[i]) == -1)
+		{
+			ft_printf("Error\n");
+			return (0);
+		}
 		i++;
 	}
 	print_stack(stack_a);
