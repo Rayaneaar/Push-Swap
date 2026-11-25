@@ -1,6 +1,7 @@
 #include "ft_printf.h"
 #include "libft.h"
 #include "push_swap.h"
+#include <limits.h>
 #include <stdio.h>
 
 void	init_stack(t_stack *stack)
@@ -122,6 +123,8 @@ int	argv_parser(t_stack *stack, char *str)
 		if (str[j] && !ft_isspace(str[j]))
 			return (-1);
 		number = result * sign;
+		if (number > INT_MAX || number < INT_MIN)
+			return (-1);
 		if (is_dup(stack, number) == -1)
 			return (-1);
 		new_node = create_new_node(number);
@@ -136,10 +139,7 @@ int	main(int ac, char **av)
 	t_stack	stack_a;
 
 	if (ac < 2)
-	{
-		ft_printf("Error\n");
 		return (0);
-	}
 	i = 1;
 	init_stack(&stack_a);
 	while (i < ac)
