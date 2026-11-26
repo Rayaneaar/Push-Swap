@@ -4,7 +4,7 @@
 - [x] Implement argument parsing for multiple arguments and space-separated number strings.
 - [x] Validate integer syntax, signs, range, empty input, and duplicate values.
 - [ ] Handle invalid input and allocation failures with the required error output and complete cleanup.
-- [ ] Optimise parsing code, structure and logic.
+- [x] Optimise parsing code, structure and logic.
 
 ## 2. Stack Implementation
 - [ ] Implement Stack A and Stack B.

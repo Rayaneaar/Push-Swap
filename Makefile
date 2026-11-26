@@ -4,7 +4,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 #TODO : TO REMOVE LATER
-SRCS := $(wildcard src/*.c)
+SRCS = $(wildcard src/*.c src/*/*.c)
 #TODO: TO REMOVE LATER
 OBJS = $(SRCS:.c=.o)
 
