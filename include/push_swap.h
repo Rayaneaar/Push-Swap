@@ -29,6 +29,20 @@ typedef struct s_stack
 	int				size;
 }					t_stack;
 
+typedef enum e_operation
+{
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR
+}					t_operation;
 int					ft_isspace(int c);
 
 #endif
