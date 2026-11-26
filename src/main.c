@@ -24,6 +24,9 @@ void	ft_node_clear(t_stack *stack)
 		free(current);
 		current = next_node;
 	}
+	stack->head = NULL;
+	stack->tail = NULL;
+	stack->size = 0;
 }
 
 void	add_back(t_stack *stack, t_node *new_node)
@@ -76,8 +79,6 @@ int	is_dup(t_stack *stack, int c)
 {
 	t_node	*curr;
 
-	if (stack->size == 0)
-		return (1);
 	curr = stack->head;
 	while (curr)
 	{
@@ -87,45 +88,64 @@ int	is_dup(t_stack *stack, int c)
 	}
 	return (1);
 }
-int	argv_parser(t_stack *stack, char *str)
+
+int	get_nmbr(char *str, int *j, int *success)
 {
-	int		j;
 	int		sign;
 	long	result;
+
+	result = 0;
+	sign = 1;
+	if (str[*j] == '-' || str[*j] == '+')
+	{
+		if (str[*j] == '-')
+			sign = -1;
+		(*j)++;
+	}
+	while (str[*j] && ft_isdigit(str[*j]))
+	{
+		if (result > (LONG_MAX - (str[*j] - '0')) / 10)
+		{
+			*success = -1;
+			return (-1);
+		}
+		result = result * 10 + (str[*j] - '0');
+		(*j)++;
+	}
+	if (str[*j] && !ft_isspace(str[*j]))
+	{
+		*success = -1;
+		return (-1);
+	}
+	result *= sign;
+	if (result < INT_MIN || result > INT_MAX)
+	{
+		*success = -1;
+		return (-1);
+	}
+	return (result);
+}
+
+int	argv_parser(t_stack *stack, char *argument)
+{
+	int		j;
+	int		success;
 	int		number;
 	t_node	*new_node;
 
 	j = 0;
-	if (!str[j])
+	success = 1;
+	number = 0;
+	if (!argument[j])
 		return (-1);
-	while (str[j])
+	while (argument[j])
 	{
-		sign = 1;
-		result = 0;
-		number = 0;
-		while (ft_isspace(str[j]))
+		while (ft_isspace(argument[j]))
 			j++;
-		if (!str[j])
+		if (!argument[j])
 			break ;
-		if (str[j] == '-' || str[j] == '+')
-		{
-			if (str[j] == '-')
-				sign = -1;
-			j++;
-		}
-		while (str[j] && ft_isdigit(str[j]))
-		{
-			if (result > (LONG_MAX - (str[j] - '0')) / 10)
-				return (-1);
-			result = result * 10 + (str[j] - '0');
-			j++;
-		}
-		if (str[j] && !ft_isspace(str[j]))
-			return (-1);
-		number = result * sign;
-		if (number > INT_MAX || number < INT_MIN)
-			return (-1);
-		if (is_dup(stack, number) == -1)
+		number = get_nmbr(argument, &j, &success);
+		if (success == -1 || is_dup(stack, number) == -1)
 			return (-1);
 		new_node = create_new_node(number);
 		add_back(stack, new_node);
@@ -144,7 +164,7 @@ int	main(int ac, char **av)
 	init_stack(&stack_a);
 	while (i < ac)
 	{
-		if (argv_parser(&stack_a, av[i]) == -1)
+		if (argv_parser(&stack_a, av[i]) == -1 || stack_a.size == 0)
 		{
 			ft_printf("Error\n");
 			return (0);
