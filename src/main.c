@@ -1,5 +1,3 @@
-#include "ft_printf.h"
-#include "libft.h"
 #include "push_swap.h"
 #include <limits.h>
 #include <stdio.h>
