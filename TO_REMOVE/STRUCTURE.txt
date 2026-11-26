@@ -38,6 +38,12 @@ push_swap/
     │   ├── rotate.c
     │   └── reverse_rotate.c
     │
+    ├── history/
+    │   ├── history_init.c
+    │   ├── record_move.c
+    │   ├── history_free.c
+    │   └── print_moves.c
+    │
     ├── sorting/
     │   ├── sort_three.c
     │   ├── sort_five.c
