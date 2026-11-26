@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_node.c                                      :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raaribou <raaribou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -42,6 +42,20 @@ void	add_back(t_stack *stack, t_node *new_node)
 	else
 		stack->head = new_node;
 	stack->tail = new_node;
+	stack->size++;
+}
+
+void	add_front(t_stack *stack, t_node *new_node)
+{
+	if (!stack || !new_node)
+		return ;
+	new_node->next = stack->head;
+	new_node->prev = NULL;
+	if (stack->head)
+		stack->head->prev = new_node;
+	else
+		stack->tail = new_node;
+	stack->head = new_node;
 	stack->size++;
 }
 
