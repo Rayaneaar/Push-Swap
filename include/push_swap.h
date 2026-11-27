@@ -63,4 +63,8 @@ void				init_stack(t_stack *stack);
 
 // utils functions
 int					handle_error(int *error);
+
+// operetions functions
+
+int					push(t_stack *from_s, t_stack *to_s);
 #endif

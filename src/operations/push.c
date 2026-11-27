@@ -12,16 +12,17 @@
 
 #include "push_swap.h"
 
-// from_s the stack to take from
-// to_s the stack to put to
-//
-// from_s should not be empty
-// take the first top element form the from_s
-int	push(t_stack *from_s, t_stack *to_s, t_operation op)
+int	push(t_stack *from_s, t_stack *to_s)
 {
-	t_node	*from_top;
+	t_node	*new_head;
+	t_node	*pushed_node;
 
 	if (from_s->size == 0)
 		return (0);
-	from_top = from_s->head;
+	new_head = from_s->head->next;
+	pushed_node = from_s->head;
+	add_front(to_s, pushed_node);
+	from_s->head = new_head;
+	from_s->size--;
+	return (1);
 }
