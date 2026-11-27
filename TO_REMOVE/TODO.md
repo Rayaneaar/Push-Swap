@@ -3,13 +3,13 @@
 ## 1. Core Functionality
 - [x] Implement argument parsing for multiple arguments and space-separated number strings.
 - [x] Validate integer syntax, signs, range, empty input, and duplicate values.
-- [ ] Handle invalid input and allocation failures with the required error output and complete cleanup.
+- [x] Handle invalid input and allocation failures with the required error output and complete cleanup.
 - [x] Optimise parsing code, structure and logic.
 
 ## 2. Stack Implementation
-- [ ] Implement Stack A and Stack B.
-- [ ] Implement the 11 required operations (pa, pb, sa, sb, ss, ra, rb, rr, rra, rrb, rrr).
-- [ ] Handle empty and single-element stacks.
+- [x] Implement Stack A and Stack B.
+- [x] Implement the 11 required operations (pa, pb, sa, sb, ss, ra, rb, rr, rra, rrb, rrr).
+- [x] Handle empty and single-element stacks.
 - [ ] Test all stack operations.
 
 ## 3. Sorting Algorithms
