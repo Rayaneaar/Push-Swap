@@ -33,16 +33,16 @@ int	main(int ac, char **av)
 		}
 		i++;
 	}
-	push(&stack_a, &stack_b, PB);
-	push(&stack_a, &stack_b, PB);
-	push(&stack_a, &stack_b, PB);
+	// push(&stack_a, &stack_b, PB);
+	// push(&stack_a, &stack_b, PB);
+	// push(&stack_a, &stack_b, PB);
 	ft_printf("\n========== BEFORE ROTATE (RA) ==========\n");
 	ft_printf("\n--- STACK A ---\n");
 	print_stack(stack_a);
 	ft_printf("\n--- STACK B ---\n");
 	print_stack(stack_b);
-	reverse_rotate(&stack_a, &stack_b, RRR);
-	ft_printf("\n========== AFTER ROTATE (RA) ==========\n");
+	swap(&stack_a, &stack_b, SA);
+	ft_printf("\n========== AFTER SWAP ==========\n");
 	ft_printf("\n--- STACK A ---\n");
 	print_stack(stack_a);
 	ft_printf("\n--- STACK B ---\n");
