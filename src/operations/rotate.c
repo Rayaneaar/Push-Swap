@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	rotate(t_stack *stack)
+static int	handle_rotate(t_stack *stack)
 {
 	int	temp;
 
@@ -21,5 +21,20 @@ int	rotate(t_stack *stack)
 	temp = stack->head->value;
 	stack->head->value = stack->tail->value;
 	stack->tail->value = temp;
+	return (1);
+}
+
+int	rotate(t_stack *stack_a, t_stack *stack_b, t_operation op)
+{
+	if (!stack_a || !stack_b)
+		return (0);
+	if (op == RA)
+		return (handle_rotate(stack_a));
+	else if (op == RB)
+		return (handle_rotate(stack_b));
+	else if (op == RR)
+		return (handle_rotate(stack_b) && handle_rotate(stack_a));
+	else
+		return (0);
 	return (1);
 }

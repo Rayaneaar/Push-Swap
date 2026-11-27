@@ -63,7 +63,7 @@ typedef struct s_hist
 // operetions functions
 int					push(t_stack *stack_a, t_stack *stack_b, t_operation op);
 int					swap(t_stack *stack_a, t_stack *stack_b, t_operation op);
-int					rotate(t_stack *stack);
+int					rotate(t_stack *stack_a, t_stack *stack_b, t_operation op);
 // Parser functions
 int					ft_isspace(int c);
 int					validate_number(long n);

@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	t_operation	move;
 	t_operation	nmove2;
 
-	move = SA;
+	move = RR;
 	nmove2 = PB;
 	if (ac < 2)
 		return (0);
@@ -48,8 +48,8 @@ int	main(int ac, char **av)
 	print_stack(stack_a);
 	ft_printf("\n--- STACK B ---\n");
 	print_stack(stack_b);
-	swap(&stack_a, &stack_b, move);
-	ft_printf("\n========== AFTER SWAP ==========\n");
+	rotate(&stack_a, &stack_b, move);
+	ft_printf("\n========== AFTER ROTATE ==========\n");
 	ft_printf("\n--- STACK A ---\n");
 	print_stack(stack_a);
 	ft_printf("\n--- STACK B ---\n");
