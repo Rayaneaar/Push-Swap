@@ -3,10 +3,12 @@
 
 int	main(int ac, char **av)
 {
-	int		i;
-	t_stack	stack_a;
-	t_stack	stack_b;
+	int			i;
+	t_stack		stack_a;
+	t_stack		stack_b;
+	t_operation	move;
 
+	move = PB;
 	if (ac < 2)
 		return (0);
 	i = 1;
@@ -26,7 +28,7 @@ int	main(int ac, char **av)
 	print_stack(stack_a);
 	ft_printf("\n--- STACK B ---\n");
 	print_stack(stack_b);
-	push(&stack_a, &stack_b);
+	push(&stack_a, &stack_b, move);
 	ft_printf("\n========== AFTER PUSH ==========\n");
 	ft_printf("\n--- STACK A ---\n");
 	print_stack(stack_a);

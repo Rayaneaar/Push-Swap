@@ -44,6 +44,24 @@ typedef enum e_operation
 	RRB,
 	RRR
 }					t_operation;
+
+typedef struct s_history_node
+{
+	t_operation		op;
+	struct s_node	*next;
+}					t_history_node;
+
+typedef struct s_hist
+{
+	t_node			*head;
+	t_node			*tail;
+	size_t			count;
+	/* for --bench its an array from 0->10 you access by the enum increment  */
+	size_t			per_op[11];
+}					t_hist;
+
+// operetions functions
+int					push(t_stack *stack_a, t_stack *stack_b, t_operation op);
 // Parser functions
 int					ft_isspace(int c);
 int					validate_number(long n);
@@ -65,6 +83,5 @@ void				init_stack(t_stack *stack);
 int					handle_error(int *error);
 
 // operetions functions
-
-int					push(t_stack *from_s, t_stack *to_s);
+int					push(t_stack *from_s, t_stack *to_s, t_operation op);
 #endif

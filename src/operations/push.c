@@ -12,17 +12,30 @@
 
 #include "push_swap.h"
 
-int	push(t_stack *from_s, t_stack *to_s)
+int	push(t_stack *stack_a, t_stack *stack_b, t_operation op)
 {
 	t_node	*new_head;
 	t_node	*pushed_node;
 
-	if (from_s->size == 0)
-		return (0);
-	new_head = from_s->head->next;
-	pushed_node = from_s->head;
-	add_front(to_s, pushed_node);
-	from_s->head = new_head;
-	from_s->size--;
-	return (1);
+	if (op == PA)
+	{
+		if (stack_b->size == 0)
+			return (0);
+		new_head = stack_b->head->next;
+		pushed_node = stack_b->head;
+		add_front(stack_a, pushed_node);
+		stack_b->head = new_head;
+		stack_b->size--;
+	}
+	else if (op == PB)
+	{
+		if (stack_a->size == 0)
+			return (0);
+		new_head = stack_a->head->next;
+		pushed_node = stack_a->head;
+		add_front(stack_b, pushed_node);
+		stack_a->head = new_head;
+		stack_a->size--;
+	}
+	return (0);
 }
