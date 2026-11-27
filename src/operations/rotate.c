@@ -6,7 +6,7 @@
 /*   By: nsadiki <nsadiki@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/27 15:14:50 by nsadiki           #+#    #+#             */
-/*   Updated: 2026/11/27 15:31:06 by nsadiki          ###   ########.fr       */
+/*   Updated: 2026/11/27 16:49:20 by nsadiki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 static int	handle_rotate(t_stack *stack)
 {
-	int	temp;
+	t_node	*old_node;
 
 	if (!stack || stack->size <= 1)
 		return (0);
-	temp = stack->head->value;
-	stack->head->value = stack->tail->value;
-	stack->tail->value = temp;
+	old_node = stack->head;
+	stack->head = old_node->next;
+	stack->head->prev = NULL;
+	stack->size--;
+	add_back(stack, old_node);
 	return (1);
 }
 

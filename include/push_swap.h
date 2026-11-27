@@ -6,7 +6,7 @@
 /*   By: nsadiki <nsadiki@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/22 13:15:05 by nsadiki           #+#    #+#             */
-/*   Updated: 2026/11/27 15:16:29 by nsadiki          ###   ########.fr       */
+/*   Updated: 2026/11/27 16:50:31 by nsadiki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -64,6 +64,8 @@ typedef struct s_hist
 int					push(t_stack *stack_a, t_stack *stack_b, t_operation op);
 int					swap(t_stack *stack_a, t_stack *stack_b, t_operation op);
 int					rotate(t_stack *stack_a, t_stack *stack_b, t_operation op);
+int					reverse_rotate(t_stack *stack_a, t_stack *stack_b,
+						t_operation op);
 // Parser functions
 int					ft_isspace(int c);
 int					validate_number(long n);
