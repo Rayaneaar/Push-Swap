@@ -14,15 +14,13 @@
 
 static int	swap_handler(t_stack *stack)
 {
-	t_node	*old_node;
+	int	node_holder;
 
 	if (stack->size <= 1)
 		return (0);
-	old_node = stack->head->next;
-	stack->head->next = old_node->next;
-	stack->head->prev = old_node->prev;
-	stack->size--;
-	add_front(stack, old_node);
+	node_holder = stack->head->next->value;
+	stack->head->next->value = stack->head->value;
+	stack->head->value = node_holder;
 	return (1);
 }
 int	swap(t_stack *stack_a, t_stack *stack_b, t_operation op)
