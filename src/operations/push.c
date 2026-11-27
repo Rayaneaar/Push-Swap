@@ -6,7 +6,7 @@
 /*   By: nsadiki <nsadiki@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 20:27:48 by nsadiki           #+#    #+#             */
-/*   Updated: 2026/11/27 15:26:43 by nsadiki          ###   ########.fr       */
+/*   Updated: 2026/11/27 15:57:53 by nsadiki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	push_handler(t_stack *from_s, t_stack *to_s)
 }
 int	push(t_stack *stack_a, t_stack *stack_b, t_operation op)
 {
-	if (!stack_a || !stack_b || !op)
+	if (!stack_a || !stack_b)
 		return (0);
 	if (op == PA)
 		return (push_handler(stack_b, stack_a));
