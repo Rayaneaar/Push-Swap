@@ -18,6 +18,7 @@ void	init_stack(t_stack *stack)
 	stack->tail = NULL;
 	stack->size = 0;
 }
+
 void	print_stack(t_stack stack)
 {
 	t_node	*cur;

@@ -6,11 +6,17 @@
 /*   By: nsadiki <nsadiki@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 21:18:02 by nsadiki           #+#    #+#             */
-/*   Updated: 2026/11/05 14:59:30 by nsadiki          ###   ########.fr       */
+/*   Updated: 2026/11/27 15:06:51 by nsadiki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	handle_test_err(va_list *ap)
+{
+	va_end(*ap);
+	return (-1);
+}
 
 static int	ft_step(const char *format, int *i, va_list *ap)
 {
@@ -19,25 +25,16 @@ static int	ft_step(const char *format, int *i, va_list *ap)
 	if (format[*i] == '%')
 	{
 		if (!format[*i + 1])
-		{
-			va_end(*ap);
-			return (-1);
-		}
+			return (handle_test_err(ap));
 		test = ft_handler(format[*i + 1], ap);
 		if (test == -1)
-		{
-			va_end(*ap);
-			return (-1);
-		}
+			return (handle_test_err(ap));
 		*i += 2;
 		return (test);
 	}
 	test = ft_putchar(format[*i]);
 	if (test == -1)
-	{
-		va_end(*ap);
-		return (-1);
-	}
+		return (handle_test_err(ap));
 	(*i)++;
 	return (test);
 }
