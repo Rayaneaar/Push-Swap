@@ -37,5 +37,7 @@ int	push(t_stack *stack_a, t_stack *stack_b, t_operation op)
 		stack_a->head = new_head;
 		stack_a->size--;
 	}
-	return (0);
+	else
+		return (0);
+	return (1);
 }
