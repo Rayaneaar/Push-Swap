@@ -18,8 +18,10 @@ int	main(int ac, char **av)
 	t_stack		stack_a;
 	t_stack		stack_b;
 	t_operation	move;
+	t_operation	nmove2;
 
-	move = PB;
+	move = SA;
+	nmove2 = PB;
 	if (ac < 2)
 		return (0);
 	i = 1;
@@ -39,8 +41,15 @@ int	main(int ac, char **av)
 	print_stack(stack_a);
 	ft_printf("\n--- STACK B ---\n");
 	print_stack(stack_b);
-	push(&stack_a, &stack_b, move);
+	push(&stack_a, &stack_b, nmove2);
+	push(&stack_a, &stack_b, nmove2);
 	ft_printf("\n========== AFTER PUSH ==========\n");
+	ft_printf("\n--- STACK A ---\n");
+	print_stack(stack_a);
+	ft_printf("\n--- STACK B ---\n");
+	print_stack(stack_b);
+	swap(&stack_a, &stack_b, move);
+	ft_printf("\n========== AFTER SWAP ==========\n");
 	ft_printf("\n--- STACK A ---\n");
 	print_stack(stack_a);
 	ft_printf("\n--- STACK B ---\n");
