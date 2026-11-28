@@ -10,7 +10,7 @@
 - [x] Implement Stack A and Stack B.
 - [x] Implement the 11 required operations (pa, pb, sa, sb, ss, ra, rb, rr, rra, rrb, rrr).
 - [x] Handle empty and single-element stacks.
-- [ ] Test all stack operations.
+- [x] Test all stack operations.
 
 ## 3. Sorting Algorithms
 - [ ] Implement Simple strategy — O(n²).
