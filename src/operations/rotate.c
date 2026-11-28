@@ -35,8 +35,7 @@ int	rotate(t_stack *stack_a, t_stack *stack_b, t_operation op)
 	else if (op == RB)
 		return (handle_rotate(stack_b));
 	else if (op == RR)
-		return (handle_rotate(stack_b) && handle_rotate(stack_a));
+		return (handle_rotate(stack_b) | handle_rotate(stack_a));
 	else
 		return (0);
-	return (1);
 }

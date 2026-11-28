@@ -32,8 +32,6 @@ int	swap(t_stack *stack_a, t_stack *stack_b, t_operation op)
 	else if (op == SB)
 		return (swap_handler(stack_b));
 	else if (op == SS)
-		return (swap_handler(stack_a) && swap_handler(stack_a));
-	else
-		return (0);
-	return (1);
+		return (swap_handler(stack_a) | swap_handler(stack_b));
+	return (0);
 }

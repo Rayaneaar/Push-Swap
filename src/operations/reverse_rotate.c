@@ -35,9 +35,7 @@ int	reverse_rotate(t_stack *stack_a, t_stack *stack_b, t_operation op)
 	else if (op == RRB)
 		return (handle_reverse_rotate(stack_b));
 	else if (op == RRR)
-		return (handle_reverse_rotate(stack_b)
-			&& handle_reverse_rotate(stack_a));
+		return (handle_reverse_rotate(stack_b) | handle_reverse_rotate(stack_a));
 	else
 		return (0);
-	return (1);
 }

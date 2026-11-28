@@ -21,9 +21,13 @@ static int	push_handler(t_stack *from_s, t_stack *to_s)
 		return (0);
 	new_head = from_s->head->next;
 	pushed_node = from_s->head;
-	add_front(to_s, pushed_node);
 	from_s->head = new_head;
+	if (new_head)
+		new_head->prev = NULL;
+	else
+		from_s->tail = NULL;
 	from_s->size--;
+	add_front(to_s, pushed_node);
 	return (1);
 }
 int	push(t_stack *stack_a, t_stack *stack_b, t_operation op)
